@@ -1,0 +1,61 @@
+{
+  "name": "vscode-extension-info",
+  "version": "1.0.0",
+  "description": "A Node.js package to retrieve information about Visual Studio Code extensions installed on the user's machine, including extension names, versions, publishers, descriptions, installation dates, sizes, marketplace URLs, and more.",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalednassar500/vscode-extension-info.git"
+  },
+  "keywords": [
+    "Visual Studio Code",
+    "Extension",
+    "Information",
+    "Listing",
+    "Extensions",
+    "Package",
+    "Marketplace",
+    "Installed",
+    "Management",
+    "Metadata",
+    "Development",
+    "Extension Name",
+    "Extension Version",
+    "Extension Publisher",
+    "Extension Description",
+    "Extension Installation Date",
+    "Extension ID",
+    "Extension Marketplace URL",
+    "Extension Size",
+    "Extension Repository",
+    "Extension Keywords",
+    "Extension License",
+    "Extension Dependencies",
+    "Extension VS Code Version",
+    "Extension Homepage",
+    "Extension Bugs",
+    "Extension Author",
+    "Extension Update"
+  ],
+  "author": "Khaled Nassar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khalednassar500/vscode-extension-info/issues"
+  },
+  "homepage": "https://github.com/khalednassar500/vscode-extension-info#readme",
+  "bin": {
+    "vscode-extension-info": "cli.js",
+    "vs-ext-i": "cli.js"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "^0.0.1-security",
+    "os": "^0.1.2",
+    "package-json": "^8.1.1",
+    "path": "^0.12.7"
+  }
+}
