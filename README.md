@@ -58,7 +58,7 @@
  vs-ext-i --update
 ```
 
-- Display a specific extension name, description, and ID:
+- Display name, description, and ID for a specific extension:
 ```
  vs-ext-i < extension-id > --name --description --id
 ```
