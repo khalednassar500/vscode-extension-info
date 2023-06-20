@@ -24,22 +24,16 @@ const getFileSize = (filePath) => {
   }
 };
 
-const extensionsFolder =
-  os.platform() === "win32"
-    ? path.join(os.homedir(), "AppData", "Roaming", "Code", "extensions")
-    : os.platform() === "darwin"
-    ? path.join(
-        os.homedir(),
-        "Library",
-        "Application Support",
-        "Code",
-        "extensions"
-      )
-    : path.join(os.homedir(), ".vscode", "extensions");
+const extensionsFolder = path.join(os.homedir(), ".vscode", "extensions");
 
 const getExtensionInfo = (folder) => {
   let extensionFolder = path.join(extensionsFolder, folder);
   const packageJsonPath = path.join(extensionFolder, "package.json");
+  const stat = fs.statSync(extensionFolder);
+
+  if (!stat.isDirectory()) {
+    return null; // Skip if it's not a directory
+  }
 
   try {
     const packageJsonData = fs.readFileSync(packageJsonPath, "utf8");
@@ -212,11 +206,11 @@ const showTargetExtensionInfo = (extID, commands) => {
 };
 
 const updateExtension = (extID) => {
-  let command;
+  let command1;
   if (extID) {
-    command = `code --install-extension ${extID} --force`;
+    command1 = `code --install-extension ${extID} --force`;
     try {
-      execSync(command, { stdio: "inherit" });
+      execSync(command1, { stdio: "inherit" });
       console.log(`Extension "${extID}" updated successfully.`);
     } catch (error) {
       console.error(`Failed to update extension "${extID}".`);
@@ -234,10 +228,10 @@ const updateExtension = (extID) => {
         }
         const extensionInfo = getExtensionInfo(folder);
         if (extensionInfo) {
-          command = `code --install-extension ${extensionInfo.extensionID} --force`;
+          command1 = `code --install-extension ${extensionInfo.extensionID} --force`;
 
           try {
-            execSync(command, { stdio: "inherit" });
+            execSync(command1, { stdio: "inherit" });
             console.log(
               `Extension "${extensionInfo.extensionID}" updated successfully.`
             );
